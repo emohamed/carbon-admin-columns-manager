@@ -45,14 +45,6 @@ class Carbon_Admin_Column {
 	protected $sortable_key;
 
 	/**
-	 * An array with the available column contains
-	 *
-	 * @see verify_column_container()
-	 * @var array
-	 */
-	protected $allowed_containers = array('post_columns', 'taxonomy_columns', 'user_columns' );
-
-	/**
 	 * An instance of Main Carbon Columns Container
 	 *
 	 * @var object $manager
@@ -196,10 +188,6 @@ class Carbon_Admin_Column {
 
 	public function get_targets() {
 		return $this->manager->get_targets();
-	}
-
-	public function verify_column_container($container) {
-		return in_array($container, $this->allowed_containers);
 	}
 
 	/**
