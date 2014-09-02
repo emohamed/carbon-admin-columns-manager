@@ -1,6 +1,7 @@
 <?php 
 
 class Carbon_Admin_Columns_Manager_Taxonomy_Columns extends Carbon_Admin_Columns_Manager {
+	public $admin_screen_type = "taxonomy_columns";
 
 	public function remove($columns_to_remove) {
 		$this->columns_to_remove = (array) $columns_to_remove;

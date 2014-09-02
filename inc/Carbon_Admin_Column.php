@@ -1,7 +1,6 @@
 <?php 
 
 class Carbon_Admin_Column {
-
 	/**
 	 * Column type
 	 *
@@ -195,10 +194,6 @@ class Carbon_Admin_Column {
 		return $this;
 	}
 
-	public function get_container_type() {
-		return $this->manager->get_type();
-	}
-
 	public function get_targets() {
 		return $this->manager->get_targets();
 	}
@@ -213,14 +208,9 @@ class Carbon_Admin_Column {
 	public function init() {
 		$targets = $this->get_targets();
 		$is_sortable = $this->is_sortable();
-		$container_type = $this->get_container_type();
-
-		if ( !$this->verify_column_container($container_type) ) {
-			wp_die( 'Unknown column container "' . $container_type . '".' );
-		}
 
 		$column_header = array($this, 'init_column_label');
-		$column_content = array($this, 'init_' . $container_type . '_callback');
+		$column_content = array($this, 'init_' . $this->manager->admin_screen_type . '_callback');
 		$column_sortable = array($this, 'init_column_sortable');
 
 		foreach ($targets as $object) {
