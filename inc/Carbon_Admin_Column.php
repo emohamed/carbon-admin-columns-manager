@@ -299,7 +299,7 @@ class Carbon_Admin_Column {
 
 		} else if ($callback_function_name){
 
-			if ( !function_exists($callback_function_name) ) {
+			if ( !is_callable($callback_function_name) ) {
 				wp_die( 'Missing Carbon Admin Column callback function : "' . $container_type . '".' );
 			}
 
