@@ -6,8 +6,7 @@ class Carbon_Admin_Columns_Manager_Taxonomy_Columns extends Carbon_Admin_Columns
 	public function remove($columns_to_remove) {
 		$this->columns_to_remove = (array) $columns_to_remove;
 
-		$targets = $this->get_targets();
-		foreach ($targets as $taxonomy) {
+		foreach ($this->object_types as $taxonomy) {
 			add_filter( 'manage_edit-' . $taxonomy . '_columns' , array($this, 'unset_admin_columns') );
 		}
 
@@ -36,7 +35,7 @@ class Carbon_Admin_Columns_Manager_Taxonomy_Columns extends Carbon_Admin_Columns
 			$taxonomy_name = $_GET['taxonomy'];
 		}
 
-		return in_array($taxonomy_name, $this->get_targets());
+		return in_array($taxonomy_name, $this->object_types);
 	}
 
 	public function get_cols_list_filter_name( $taxonomy_name ) {

@@ -12,7 +12,7 @@ class Carbon_Admin_Columns_Manager_User_Columns extends Carbon_Admin_Columns_Man
 	}
 
 	public function add( $columns ) {
-		$this->targets = array('users');
+		$this->object_types = array('users');
 
 		$defined_columns = array();
 		$callback_helper = new Carbon_Admin_Column_Callback_Helper();

@@ -6,15 +6,9 @@
 class Carbon_Admin_Columns_Manager {
 	
 	/**
-	 * Target name
-	 *
-	 * The target name might be taxonomies or post types
-	 *
-	 * @see set_target()
-	 * @see get_target()
-	 * @var array|string $targets
+	 * @var array
 	 */
-	protected $targets;
+	public $object_types = array();
 	
 	/**
 	 * One of the following: 
@@ -48,18 +42,8 @@ class Carbon_Admin_Columns_Manager {
 		return new Carbon_Admin_Columns_Manager_Taxonomy_Columns($taxonomies);
 	}
 
-	private function __construct($targets='') {
-		$this->set_target($targets);
-	}
-
-	public function set_target($targets) {
-		$this->targets = (array) $targets;
-
-		return $this;
-	}
-
-	public function get_targets() {
-		return $this->targets;
+	private function __construct($object_types=array()) {
+		$this->object_types = (array) $object_types;
 	}
 
 	public function unset_admin_columns($columns) {

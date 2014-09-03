@@ -175,17 +175,13 @@ class Carbon_Admin_Column {
 		return $this;
 	}
 
-	public function get_targets() {
-		return $this->manager->get_targets();
-	}
-
 	/**
 	 * Setup hooks for columns list, columns values and sortable flags.
 	 */
 	public function init() {
 		// The type of objects that will be affected -- e.g. specific 
 		// post types or taxonomies
-		$object_types = $this->get_targets();
+		$object_types = $this->manager->object_types;
 		$admin_screen = $this->manager->admin_screen_type;
 
 		foreach ($object_types as $object_type) {

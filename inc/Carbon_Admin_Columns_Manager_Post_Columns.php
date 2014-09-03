@@ -35,7 +35,7 @@ class Carbon_Admin_Columns_Manager_Post_Columns extends Carbon_Admin_Columns_Man
 			$post_type = $_GET['post_type'];
 		}
 
-		return in_array($post_type, $this->get_targets());
+		return in_array($post_type, $this->object_types);
 	}
 
 	public function get_cols_list_filter_name( $post_type_name ) {
