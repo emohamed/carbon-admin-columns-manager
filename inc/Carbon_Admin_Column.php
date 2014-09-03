@@ -2,16 +2,6 @@
 
 class Carbon_Admin_Column {
 	/**
-	 * Column type
-	 *
-	 * Available options: custom_field | callback
-	 *
-	 * @see remove()
-	 * @var string $type
-	 */
-	protected $type;
-
-	/**
 	 * Contains the column label
 	 *
 	 * @var string $label
