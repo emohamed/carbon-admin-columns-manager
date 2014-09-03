@@ -39,15 +39,15 @@ class Carbon_Admin_Columns_Manager_Taxonomy_Columns extends Carbon_Admin_Columns
 		return in_array($taxonomy_name, $this->get_targets());
 	}
 
-	public function get_column_filter_name( $taxonomy_name ) {
+	public function get_cols_list_filter_name( $taxonomy_name ) {
 		return 'manage_edit-' . $taxonomy_name . '_columns';
 	}
 
-	public function get_column_filter_content( $taxonomy_name ) {
+	public function get_col_content_filter_name( $taxonomy_name ) {
 		return 'manage_' . $taxonomy_name . '_custom_column';
 	}
 
-	public function get_column_filter_sortable( $taxonomy_name ) {
+	public function get_sortable_filter_name( $taxonomy_name ) {
 		return 'manage_edit-' . $taxonomy_name . '_sortable_columns';
 	}
 

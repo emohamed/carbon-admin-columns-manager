@@ -30,6 +30,10 @@ class Carbon_Admin_Column_Callback_Helper {
 	}
 
 	public function get_index() {
+		$columns_count = $this->get_total_columns();
+		if ($columns_count === 0) {
+			return 0;
+		}
 		return floor( $this->get_callback_request_number() / $this->get_total_columns() );
 	}
 

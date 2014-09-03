@@ -38,15 +38,15 @@ class Carbon_Admin_Columns_Manager_Post_Columns extends Carbon_Admin_Columns_Man
 		return in_array($post_type, $this->get_targets());
 	}
 
-	public function get_column_filter_name( $post_type_name ) {
+	public function get_cols_list_filter_name( $post_type_name ) {
 		return 'manage_' . $post_type_name . '_posts_columns';
 	}
 
-	public function get_column_filter_content( $post_type_name ) {
+	public function get_col_content_filter_name( $post_type_name ) {
 		return 'manage_' . $post_type_name . '_posts_custom_column';
 	}
 
-	public function get_column_filter_sortable( $post_type_name ) {
+	public function get_sortable_filter_name( $post_type_name ) {
 		return 'manage_edit-' . $post_type_name . '_sortable_columns';
 	}
 

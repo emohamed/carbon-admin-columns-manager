@@ -15,6 +15,7 @@ class Carbon_Admin_Columns_Manager {
 	 * @var array|string $targets
 	 */
 	protected $targets;
+	
 	/**
 	 * One of the following: 
 	 *  - post_columns
