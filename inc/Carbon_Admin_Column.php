@@ -2,37 +2,26 @@
 
 class Carbon_Admin_Column {
 	/**
-	 * Contains the column label
+	 * Column Label
 	 *
-	 * @var string $label
+	 * @var string
 	 */
 	protected $label;
 
 	/**
-	 * Columns name
+	 * Column name
 	 *
-	 * @see set_column_name()
-	 * @see get_column_name()
-	 * @var string $name
+	 * @var string
 	 */
 	protected $name;
 
 	/**
-	 * Defines if the column is sortable or not
-	 *
-	 * @see set_sortable()
-	 * @var boolean $is_sortable as first parameter
+	 * The field that will be used for ordeing the posts. Null value will
+	 * disable the ordering capability.
+	 * 
+	 * @var string $sort_field
 	 */
-	protected $is_sortable = false;
-
-	/**
-	 * Default ::: escaped( $label )
-	 * $_GET[orderby] = $sortable_key
-	 *
-	 * @see set_sortable()
-	 * @var boolean $sortable_key as second parameter
-	 */
-	protected $sortable_key;
+	protected $sort_field;
 
 	/**
 	 * An instance of Main Carbon Columns Container
@@ -134,25 +123,20 @@ class Carbon_Admin_Column {
 		return $this->label;
 	}
 
-	public function set_sortable($is_sortable, $sortable_key=null) {
-		$this->sortable_key = $sortable_key;
-		$this->is_sortable = $is_sortable;
+	public function set_sort_field($sort_field=null) {
+		$this->sort_field = $sort_field;
 
 		return $this;
 	}
 
-	public function get_sortable_key() {
-		$sortable_key = $this->sortable_key;
+	public function get_sort_field() {
+		$sort_field = $this->sort_field;
 
-		if ( !$sortable_key ) {
-			$sortable_key = $this->get_column_name();
+		if ( !$sort_field ) {
+			$sort_field = $this->get_column_name();
 		}
 
-		return $sortable_key;
-	}
-
-	public function is_sortable() {
-		return $this->is_sortable;
+		return $sort_field;
 	}
 
 	public function is_callback() {
@@ -190,7 +174,7 @@ class Carbon_Admin_Column {
 				3
 			);
 
-			if ( $this->is_sortable() ) {
+			if ( $this->sort_field ) {
 				// If necessary, filter sortable flags. 
 				add_filter(
 					$this->manager->get_sortable_filter_name( $object_type ),
@@ -213,7 +197,7 @@ class Carbon_Admin_Column {
 	}
 
 	public function init_column_sortable($columns) {
-		$columns[ $this->get_column_name() ] 	= $this->get_sortable_key();
+		$columns[ $this->get_column_name() ] = $this->sort_field;
 
 		return $columns;  
 	}
